@@ -9,3 +9,9 @@ crate-type = ["cdylib"]
 [dependencies]
 near-sdk = "5.24.1"
 near-contract-standards = "5.24.1"
+
+[package.metadata.near.reproducible_build]
+image = "sourcescan/cargo-near:0.13.3-rust-1.86.0"
+image_digest = "sha256:b37abf62e6a8b1e2d57a0b48a3ed0c0e26e00ee3f07ebcd6ab1d8e949de3e985"
+container_build_command = ["cargo", "near", "build", "non-reproducible-wasm", "--locked"]
+
