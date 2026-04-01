@@ -2,10 +2,15 @@
 name = "faucet_contract"
 version = "0.1.0"
 edition = "2024"
-
+repository = "https://github.com/chtonad0000/near-contracts"
 [lib]
 crate-type = ["cdylib"]
 
 [dependencies]
 near-sdk = "5.24.1"
-near-contract-standards = "=5.24.1"
+near-contract-standards = "5.24.1"
+
+[package.metadata.near.reproducible_build]
+image = "sourcescan/cargo-near:0.19.0-rust-1.86.0"
+image_digest = "sha256:772638e343baeeea24e49062c7d424274f3441452cc06ce97fc4e5695b19fecc"
+container_build_command = ["cargo", "near", "build", "non-reproducible-wasm", "--locked"]
